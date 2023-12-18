@@ -1,4 +1,9 @@
 // variable initialization
+const playBtn = document.getElementById("play-btn");
+const resetBtn = document.getElementById("reset-btn");
+const TIMER_MAX_VALUE = 10 * 1000; // 10 seconds
+let isPaused = true;
+
 // 1. Click play btn
 // 2. Start timer
 // 3. Play button icon converts to pause button icon
