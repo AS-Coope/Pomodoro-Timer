@@ -10,13 +10,12 @@ let intervalId;
 
 // 1. Click play btn
 playBtn.addEventListener('click', () => {
-    changePlayBtn();
 
     if (currentTimerValue === 0) {
         // here, timer should be reset and button changed back to play button
         console.log("Timer is complete");
-        changePlayBtn();
     } else {
+        changePlayBtn();
         // 2. Start timer
         if (isTicking === true) {
             intervalId = setInterval(() => {
