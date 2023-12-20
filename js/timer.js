@@ -1,38 +1,44 @@
 // variable initialization
 const playBtn = document.getElementById("play-btn");
 const resetBtn = document.getElementById("reset-btn");
+const timerScrn = document.querySelector(".timer-screen");
 const ONE_SECOND_IN_MILLISECONDS = 1000;
 const TIMER_MAX_VALUE = 10 * ONE_SECOND_IN_MILLISECONDS; // 10 seconds
 let isPaused = true;
 let currentTimerValue = TIMER_MAX_VALUE;
+let intervalId;
 
 // 1. Click play btn
 playBtn.addEventListener('click', () => {
     changePlayBtn();
-    /*     console.log(isPaused);
-        console.log(currentTimerValue);
-     */
-    /*     if (isPaused === false) {
-            setInterval(() => {
-                console.log(currentTimerValue);
+
+    if (currentTimerValue === 0) {
+        // here, timer should be reset and button changed back to play button
+        console.log("Timer is complete");
+        changePlayBtn();
+    } else {
+        if (isPaused === false) {
+            intervalId = setInterval(() => {
                 currentTimerValue = currentTimerValue - 1000;
+                timerScrn.textContent = `${currentTimerValue} seconds`;
+                console.log(`${currentTimerValue} seconds`);
                 if (currentTimerValue === 0) {
-                    alert("Timer Done!");
-                S}
-            }, 1000); // figure out how to stop interval
-}
-*/
-    /*     while (isPaused === false & currentTimerValue > 0) {
-            console.log(currentTimerValue);
+                    console.log("Timer Done!");
+                    clearInterval(intervalId);
+                    changePlayBtn();
+                }
+            }, 1000);
+        } else {
+            clearInterval(intervalId);
         }
-     */
+
+    }
 });
 
 function changePlayBtn() {
     isPaused = !isPaused;
     isPaused === false ? playBtn.textContent = "Click to Pause" : playBtn.textContent = "Click to Play";
 }
-
 // 2. Start timer
 // 3. Play button icon converts to pause button icon
 // 4. Reset button is always beside play button
