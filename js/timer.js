@@ -4,7 +4,7 @@ const resetBtn = document.getElementById("reset-btn");
 const timerScrn = document.querySelector(".timer-screen");
 const ONE_SECOND_IN_MILLISECONDS = 1000;
 const TIMER_MAX_VALUE = 10 * ONE_SECOND_IN_MILLISECONDS; // 10 seconds
-let isPaused = true;
+let isTicking = false;
 let currentTimerValue = TIMER_MAX_VALUE;
 let intervalId;
 
@@ -18,7 +18,7 @@ playBtn.addEventListener('click', () => {
         changePlayBtn();
     } else {
         // 2. Start timer
-        if (isPaused === false) {
+        if (isTicking === true) {
             intervalId = setInterval(() => {
                 currentTimerValue = currentTimerValue - ONE_SECOND_IN_MILLISECONDS;
                 setTimerText(timerScrn, currentTimerValue);
@@ -48,7 +48,7 @@ resetBtn.addEventListener('click', () => {
         clearInterval(intervalId);
         currentTimerValue = TIMER_MAX_VALUE;
         setTimerText(timerScrn, currentTimerValue);
-        if (isPaused === false) {
+        if (isTicking === true) {
             changePlayBtn(); // the button must not still be showing that the timer is playing/ticking
         }
     }
@@ -57,8 +57,8 @@ resetBtn.addEventListener('click', () => {
 });
 
 function changePlayBtn() {
-    isPaused = !isPaused;
-    isPaused === false ? playBtn.textContent = "Click to Pause" : playBtn.textContent = "Click to Play";
+    isTicking = !isTicking;
+    isTicking === true ? playBtn.textContent = "Click to Pause" : playBtn.textContent = "Click to Play";
 }
 
 function setTimerText(elem, timerValue) {
