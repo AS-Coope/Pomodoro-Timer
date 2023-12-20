@@ -8,6 +8,7 @@ let isTicking = false;
 let currentTimerValue = TIMER_MAX_VALUE;
 let intervalId;
 
+initializePage();
 // 1. Click play btn
 playBtn.addEventListener('click', () => {
 
@@ -62,6 +63,10 @@ function changePlayBtn() {
 
 function setTimerText(elem, timerValue) {
     timerValue === 1000 ? elem.textContent = `${timerValue} second` : elem.textContent = `${timerValue} seconds`;
+}
+
+function initializePage() {
+    setTimerText(timerScrn, currentTimerValue);
 }
 // 4. Reset button is always beside play button
 // 4a. It should not do anything to the timer
