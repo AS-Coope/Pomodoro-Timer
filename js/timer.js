@@ -17,22 +17,43 @@ playBtn.addEventListener('click', () => {
         console.log("Timer is complete");
         changePlayBtn();
     } else {
+        // 2. Start timer
         if (isPaused === false) {
             intervalId = setInterval(() => {
-                currentTimerValue = currentTimerValue - 1000;
+                currentTimerValue = currentTimerValue - ONE_SECOND_IN_MILLISECONDS;
                 setTimerText(timerScrn, currentTimerValue);
                 console.log(`${currentTimerValue} seconds`);
                 if (currentTimerValue === 0) {
                     console.log("Timer Done!");
                     clearInterval(intervalId);
+                    // 3. Play button icon converts to pause button icon
                     changePlayBtn();
                 }
-            }, 1000);
+            }, ONE_SECOND_IN_MILLISECONDS);
         } else {
             clearInterval(intervalId);
         }
 
     }
+});
+
+resetBtn.addEventListener('click', () => {
+    // check if currentTimerValue = TIMER_MAX_VALUE (no resetting required since timer isn't started)
+    if (currentTimerValue === TIMER_MAX_VALUE) {
+        console.log("Nothing doing, timer hasn't started")
+    }
+    else if (intervalId === undefined) {
+        console.log("Timer hasn't started to count down yet");
+    } else {
+        clearInterval(intervalId);
+        currentTimerValue = TIMER_MAX_VALUE;
+        setTimerText(timerScrn, currentTimerValue);
+        if (isPaused === false) {
+            changePlayBtn(); // the button must not still be showing that the timer is playing/ticking
+        }
+    }
+    // need to check to ensure the intervalId is not undefined (if it is, then the timer hasn't started)
+    // actually, may only need to check one
 });
 
 function changePlayBtn() {
@@ -43,8 +64,6 @@ function changePlayBtn() {
 function setTimerText(elem, timerValue) {
     timerValue === 1000 ? elem.textContent = `${timerValue} second` : elem.textContent = `${timerValue} seconds`;
 }
-// 2. Start timer
-// 3. Play button icon converts to pause button icon
 // 4. Reset button is always beside play button
 // 4a. It should not do anything to the timer
 //     once the timer has not been started
