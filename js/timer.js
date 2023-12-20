@@ -20,7 +20,7 @@ playBtn.addEventListener('click', () => {
         if (isPaused === false) {
             intervalId = setInterval(() => {
                 currentTimerValue = currentTimerValue - 1000;
-                timerScrn.textContent = `${currentTimerValue} seconds`;
+                setTimerText(timerScrn, currentTimerValue);
                 console.log(`${currentTimerValue} seconds`);
                 if (currentTimerValue === 0) {
                     console.log("Timer Done!");
@@ -38,6 +38,10 @@ playBtn.addEventListener('click', () => {
 function changePlayBtn() {
     isPaused = !isPaused;
     isPaused === false ? playBtn.textContent = "Click to Pause" : playBtn.textContent = "Click to Play";
+}
+
+function setTimerText(elem, timerValue) {
+    timerValue === 1000 ? elem.textContent = `${timerValue} second` : elem.textContent = `${timerValue} seconds`;
 }
 // 2. Start timer
 // 3. Play button icon converts to pause button icon
