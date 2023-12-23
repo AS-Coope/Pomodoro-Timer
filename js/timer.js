@@ -25,10 +25,7 @@ playBtn.addEventListener('click', () => {
             intervalId = setInterval(() => {
                 currentMaxTimeInMs = currentMaxTimeInMs - ONE_SECOND_IN_MILLISECONDS;
 
-                const seconds = Math.floor((currentMaxTimeInMs / ONE_SECOND_IN_MILLISECONDS) % 60);
-                const minutes = Math.floor(currentMaxTimeInMs / (ONE_SECOND_IN_MILLISECONDS * ONE_MINUTE_IN_SECONDS));
-                setTimerText(timerScrn, `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
-                console.log(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+                calculateCurrentTime(currentMaxTimeInMs);
 
                 if (currentMaxTimeInMs === 0) {
                     console.log("Timer Done!");
@@ -68,6 +65,13 @@ function changePlayBtn() {
 
 function setTimerText(elem, timerValue) {
     elem.textContent = timerValue;
+}
+
+function calculateCurrentTime(maxTime) {
+    const seconds = Math.floor((maxTime / ONE_SECOND_IN_MILLISECONDS) % 60);
+    const minutes = Math.floor(maxTime / (ONE_SECOND_IN_MILLISECONDS * ONE_MINUTE_IN_SECONDS));
+    setTimerText(timerScrn, `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+    console.log(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
 }
 
 function initializePage() {
