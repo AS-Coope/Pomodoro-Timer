@@ -59,8 +59,6 @@ resetBtn.addEventListener('click', () => {
             changePlayBtn(); // the button must not still be showing that the timer is playing/ticking
         }
     }
-    // need to check to ensure the intervalId is not undefined (if it is, then the timer hasn't started)
-    // actually, may only need to check one
 });
 
 function changePlayBtn() {
@@ -69,7 +67,7 @@ function changePlayBtn() {
 }
 
 function setTimerText(elem, timerValue) {
-    timerValue === 1000 ? elem.textContent = `${timerValue} second` : elem.textContent = `${timerValue} seconds`;
+    elem.textContent = timerValue;
 }
 
 function initializePage() {
