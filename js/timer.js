@@ -51,7 +51,7 @@ resetBtn.addEventListener('click', () => {
     } else {
         clearInterval(intervalId);
         currentMaxTimeInMs = TIMER_MAX_VALUE;
-        setTimerText(timerScrn, currentMaxTimeInMs);
+        calculateCurrentTime(currentMaxTimeInMs);
         if (isTicking === true) {
             changePlayBtn(); // the button must not still be showing that the timer is playing/ticking
         }
