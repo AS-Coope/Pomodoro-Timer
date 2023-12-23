@@ -75,5 +75,6 @@ function calculateCurrentTime(maxTime) {
 }
 
 function initializePage() {
-    setTimerText(timerScrn, currentMaxTimeInMs);
+    // timer appears on screen with correct time on start up
+    calculateCurrentTime(currentMaxTimeInMs);
 }
