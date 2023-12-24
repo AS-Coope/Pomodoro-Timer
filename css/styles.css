@@ -7,3 +7,20 @@ body {
     font-family: var(--font-family);
     font-weight: var(--font-weight);
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer-buttons {
+    display: flex;
+    gap: 2rem;
+}
