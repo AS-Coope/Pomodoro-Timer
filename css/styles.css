@@ -24,6 +24,8 @@ body {
     justify-content: center;
     background-color: rgb(89, 182, 182);
     gap: 2rem;
+    box-shadow: 0.5rem 0.5rem 0.6rem grey;
+
 }
 
 .timer-screen {
@@ -31,6 +33,7 @@ body {
     background-color: hsla(0, 4%, 80%, 0.8);
     border-radius: 1.5rem;
     padding: 0 1.3rem;
+    box-shadow: 0.3rem 0.3rem 0.4rem grey inset;
 }
 
 .timer-buttons {
