@@ -15,10 +15,22 @@ body {
 }
 
 .timer {
+    height: 24rem;
+    width: 24rem;
+    border-radius: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: rgb(89, 182, 182);
+    gap: 2rem;
+}
+
+.timer-screen {
+    font-size: 6rem;
+    background-color: hsla(0, 4%, 80%, 0.8);
+    border-radius: 1.5rem;
+    padding: 0 1.3rem;
 }
 
 .timer-buttons {
