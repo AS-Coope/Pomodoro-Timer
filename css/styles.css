@@ -6,6 +6,7 @@
 body {
     font-family: var(--font-family);
     font-weight: var(--font-weight);
+    background-color: hsla(0, 85%, 27%, 0.8);
 }
 
 .container {
@@ -24,7 +25,7 @@ body {
     justify-content: center;
     background-color: rgb(89, 182, 182);
     gap: 2rem;
-    box-shadow: 0.5rem 0.5rem 0.6rem grey;
+    box-shadow: 0.3rem 0.3rem 0.4rem grey, -0.3rem -0.3rem 0.4rem grey;
 
 }
 
