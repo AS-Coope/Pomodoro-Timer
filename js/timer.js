@@ -5,7 +5,7 @@ const timerScrn = document.querySelector(".timer-screen");
 const ONE_SECOND_IN_MILLISECONDS = 1000;
 const ONE_MINUTE_IN_MILLISECONDS = 60 * ONE_SECOND_IN_MILLISECONDS;
 const ONE_MINUTE_IN_SECONDS = 60;
-const TOTAL_NUM_OF_MINUTES = 2;
+const TOTAL_NUM_OF_MINUTES = 25;
 const TIMER_MAX_VALUE = TOTAL_NUM_OF_MINUTES * ONE_MINUTE_IN_MILLISECONDS; // 10 seconds
 let isTicking = false;
 let currentMaxTimeInMs = TIMER_MAX_VALUE;
@@ -32,6 +32,7 @@ playBtn.addEventListener('click', () => {
                     clearInterval(intervalId);
                     // 3. Play button icon converts to pause button icon
                     changePlayBtn();
+                    alert("Time Complete!");
                 }
             }, ONE_SECOND_IN_MILLISECONDS);
         } else {
