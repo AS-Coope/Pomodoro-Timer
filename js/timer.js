@@ -2,6 +2,11 @@
 const playBtn = document.getElementById("play-btn");
 const resetBtn = document.getElementById("reset-btn");
 const timerScrn = document.querySelector(".timer-screen");
+const playImg = document.querySelector("#play-btn img");
+const resetImg = document.querySelector("#reset-btn img");
+const PLAY_IMG_SRC = "img/play-media-ctrl.png";
+const PAUSE_IMG_SRC = "img/pause-media-ctrl.png";
+const RESET_IMG_SRC = "img/replay-media-ctrl.png";
 const ONE_SECOND_IN_MILLISECONDS = 1000;
 const ONE_MINUTE_IN_MILLISECONDS = 60 * ONE_SECOND_IN_MILLISECONDS;
 const ONE_MINUTE_IN_SECONDS = 60;
@@ -61,7 +66,13 @@ resetBtn.addEventListener('click', () => {
 
 function changePlayBtn() {
     isTicking = !isTicking;
-    isTicking === true ? playBtn.textContent = "Click to Pause" : playBtn.textContent = "Click to Play";
+    if (isTicking === true) {
+        playImg.setAttribute("src", `${PAUSE_IMG_SRC}`);
+        playImg.setAttribute("alt", "Image of Pause Button");
+    } else {
+        playImg.setAttribute("src", `${PLAY_IMG_SRC}`);
+        playImg.setAttribute("alt", "Image of Play Button");
+    }
 }
 
 function setTimerText(elem, timerValue) {

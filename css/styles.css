@@ -45,3 +45,17 @@ h1 {
     display: flex;
     gap: 2rem;
 }
+
+.timer-buttons div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: white;
+    padding: 1rem;
+}
+
+.timer-buttons img {
+    height: 2rem;
+    width: 2rem;
+}
