@@ -53,6 +53,7 @@ h1 {
     border-radius: 50%;
     background-color: white;
     padding: 1rem;
+    box-shadow: 0.2rem 0.2rem 0.2rem grey inset, -0.1rem -0.1rem 0.1rem grey inset;
 }
 
 .timer-buttons img {
