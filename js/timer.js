@@ -22,7 +22,7 @@ playBtn.addEventListener('click', () => {
 
     if (currentMaxTimeInMs === 0) {
         // here, timer should be reset and button changed back to play button
-        console.log("Timer is complete");
+        //console.log("Timer is complete");
         alert("Timer is complete!");
     } else {
         changePlayBtn();
@@ -34,7 +34,7 @@ playBtn.addEventListener('click', () => {
                 calculateCurrentTime(currentMaxTimeInMs);
 
                 if (currentMaxTimeInMs === 0) {
-                    console.log("Timer Done!");
+                    //console.log("Timer Done!");
                     clearInterval(intervalId);
                     // 3. Play button icon converts to pause button icon
                     changePlayBtn();
@@ -51,11 +51,11 @@ playBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
     // check if currentMaxTimeInMs = TIMER_MAX_VALUE (no resetting required since timer isn't started)
     if (currentMaxTimeInMs === TIMER_MAX_VALUE) {
-        console.log("Nothing doing, timer hasn't started")
+        //console.log("Nothing doing, timer hasn't started")
         alert("Nothing doing, timer hasn't started.");
     }
     else if (intervalId === undefined) {
-        console.log("Timer hasn't started to count down yet");
+        //console.log("Timer hasn't started to count down yet");
         alert("Timer hasn't started to count down yet");
     } else {
         clearInterval(intervalId);
@@ -86,7 +86,7 @@ function calculateCurrentTime(maxTime) {
     const seconds = Math.floor((maxTime / ONE_SECOND_IN_MILLISECONDS) % 60);
     const minutes = Math.floor(maxTime / (ONE_SECOND_IN_MILLISECONDS * ONE_MINUTE_IN_SECONDS));
     setTimerText(timerScrn, `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
-    console.log(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+    //console.log(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
 }
 
 function initializePage() {
