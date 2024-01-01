@@ -52,9 +52,11 @@ resetBtn.addEventListener('click', () => {
     // check if currentMaxTimeInMs = TIMER_MAX_VALUE (no resetting required since timer isn't started)
     if (currentMaxTimeInMs === TIMER_MAX_VALUE) {
         console.log("Nothing doing, timer hasn't started")
+        alert("Nothing doing, timer hasn't started.");
     }
     else if (intervalId === undefined) {
         console.log("Timer hasn't started to count down yet");
+        alert("Timer hasn't started to count down yet");
     } else {
         clearInterval(intervalId);
         currentMaxTimeInMs = TIMER_MAX_VALUE;
